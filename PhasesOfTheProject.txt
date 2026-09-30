@@ -1,0 +1,473 @@
+Phase 0 — Reboot
+
+~5 hours
+
+Get the old project building.
+
+Understand:
+
+project structure
+build process
+executable
+debugger
+configuration
+source files
+libraries
+generated files
+
+Then write a README describing your rules and the eventual purpose of the project.
+
+At this stage your engine can do almost nothing.
+
+That's fine.
+
+Phase 1 — C++ + Program Foundations
+
+~20–30 hours
+
+Before going deep into engine systems, I want you to become much more comfortable with the things engines expose brutally.
+
+Learn through the project:
+
+Compilation
+
+Understand:
+
+source files
+preprocessing
+compilation
+object files
+linking
+libraries
+symbols
+header files
+translation units
+ABI basics
+C++ object/lifetime model
+
+This one matters enormously.
+
+Understand:
+
+stack vs heap
+object lifetime
+construction/destruction
+references
+pointers
+ownership
+const
+copy
+move
+RAII
+smart pointers
+alignment
+storage duration
+
+C++'s lifetime model and RAII are fundamental to understanding resource-heavy systems.
+
+Don't just memorise:
+
+“Use unique_ptr.”
+
+Understand:
+
+Why does unique ownership exist?
+
+Phase 2 — Platform Layer
+
+~20–30 hours
+
+Now your program becomes a real application.
+
+I actually recommend going a little lower-level here rather than immediately hiding everything behind libraries.
+
+Since you already have some DirectX experience, I'd lean toward:
+
+Windows + Win32 + Direct3D 11
+
+rather than immediately doing a huge Vulkan/DX12 project.
+
+Microsoft's own DirectX documentation describes the Windows/C++ path and the concepts involved: device resources, swap chains, the rendering pipeline and shaders.
+
+Build:
+
+application entry point
+window creation
+message loop
+input
+timing
+application shutdown
+error reporting
+debug output
+
+Don't add fancy engine abstraction yet.
+
+Your objective is:
+
+I understand what happens between launching the executable and seeing the window.
+
+That alone is a major upgrade in your mental model.
+
+Phase 3 — Engine Core
+
+~30–50 hours
+
+Now you start making actual engine architecture.
+
+Build concepts around:
+
+Application
+
+The engine's runtime lifecycle.
+
+Logging
+
+Not just printf.
+
+Think:
+
+severity
+categories
+formatting
+debug/release behaviour
+Assertions
+
+Understand why they exist.
+
+Events
+
+Keyboard, mouse, window resize, etc.
+
+Layers / systems
+
+A way to structure execution.
+
+Time
+
+Understand:
+
+delta time
+fixed timestep
+variable timestep
+accumulated time
+frame pacing
+Profiling
+
+Measure things.
+
+Not:
+
+“This seems slow.”
+
+But:
+
+“This function consumes 4.2ms during this workload.”
+
+That shift in mindset is extremely valuable.
+
+Microsoft also provides AddressSanitizer support in Visual Studio for detecting things like use-after-free, heap buffer overflows, double frees, and invalid allocation/deallocation. Use tooling like this rather than trying to mentally discover every memory bug.
+
+Phase 4 — Math
+
+~30–40 hours
+
+This deserves its own phase.
+
+Implement and understand:
+
+vectors
+matrices
+transforms
+coordinate spaces
+dot product
+cross product
+normalization
+matrix multiplication
+rotations
+quaternions
+projections
+camera transformations
+
+And don't let this become another tutorial exercise.
+
+For every operation ask:
+
+Why does this formula exist?
+
+What geometric operation does it represent?
+
+What coordinate system am I in?
+
+What does multiplication mean here?
+
+This is one of the places where your existing games background gives you a huge advantage.
+
+You already know what a Transform does.
+
+Now you're learning what the Transform actually is.
+
+Phase 5 — Renderer
+
+~50–80 hours
+
+This is probably the biggest educational chunk.
+
+Start ridiculously simple.
+
+Something like:
+
+clear screen
+    ↓
+draw triangle
+    ↓
+draw textured triangle
+    ↓
+draw sprite
+    ↓
+draw multiple sprites
+    ↓
+camera
+    ↓
+batching
+
+Then progress into:
+
+vertex buffers
+index buffers
+constant/uniform buffers
+shaders
+textures
+samplers
+depth
+render targets
+blending
+cameras
+materials
+meshes
+basic lighting
+
+Direct3D 11's programmable pipeline is documented in terms of stages and data flow, which makes it particularly useful for learning what a renderer is actually doing rather than treating rendering as a black box.
+
+One very important architectural rule
+
+Do not create a giant renderer abstraction before you have a renderer.
+
+It's tempting to make:
+
+Renderer
+RendererAPI
+GraphicsDevice
+Texture
+Shader
+Buffer
+Pipeline
+Material
+...
+
+before you've rendered anything.
+
+Don't.
+
+Build the stupidest working renderer first.
+
+Then abstraction becomes a response to reality.
+
+Phase 6 — Resource System
+
+~30–50 hours
+
+Now your engine starts feeling like an engine.
+
+Learn:
+
+file IO
+asset identification
+resource ownership
+handles
+caching
+loading/unloading
+dependencies
+resource lifetime
+
+For example:
+
+Game requests texture
+       ↓
+Resource manager
+       ↓
+Already loaded?
+   ↙       ↘
+ yes       no
+ ↓          ↓
+return    load
+ handle   resource
+
+Here you start discovering one of the central problems of engine programming:
+
+Who owns this thing, and how long does it stay alive?
+
+That question will appear everywhere.
+
+Phase 7 — Scene + Entity System
+
+~40–60 hours
+
+Now make something resembling a game runtime.
+
+You can build:
+
+entity IDs
+components
+component storage
+transforms
+parent/child relationships
+scene creation
+scene destruction
+update systems
+serialization
+
+Do not immediately chase a massive ECS architecture.
+
+Start with the simplest possible system.
+
+Then ask:
+
+What becomes slow?
+
+What becomes difficult?
+
+Why would an engine use contiguous component storage?
+
+Why might handles be better than raw pointers?
+
+That's where the interesting lessons begin.
+
+Phase 8 — Editor
+
+~40–80 hours
+
+Now build the thing Unity gave you for free.
+
+You start appreciating what a game engine actually is.
+
+Build:
+
+scene hierarchy
+inspector
+entity selection
+transform editing
+asset browser
+save/load
+viewport
+simple gizmos
+play/edit mode
+
+Use libraries where appropriate. Dear ImGui, for example, is perfectly legitimate.
+
+The learning objective isn't:
+
+“Can I manually recreate Unity?”
+
+It's:
+
+“Why is an editor difficult?”
+
+You'll suddenly understand:
+
+serialization
+reflection-ish metadata
+object identity
+runtime/editor separation
+asset management
+undo/redo
+tooling
+hot reload
+Phase 9 — Make an actual game
+
+~30–50 hours
+
+This is mandatory.
+
+Make something deliberately small.
+
+Not your dream game.
+
+Something like:
+
+top-down shooter
+
+or
+
+tiny platformer
+
+or
+
+arena survival
+
+The purpose is to discover:
+
+what your engine forgot to support.
+
+This is where engine architecture becomes real.
+
+You build a feature in the game.
+
+It sucks.
+
+Then you improve the engine.
+
+Then another game feature becomes trivial because the engine changed.
+
+That feedback loop is priceless.
+
+Phase 10 — Advanced systems
+
+This is where you can spend the remaining hundreds of hours.
+
+Choose areas that genuinely interest you.
+
+Memory
+allocators
+arenas
+pools
+fragmentation
+alignment
+memory tracking
+Multithreading
+threads
+mutexes
+atomics
+jobs
+work queues
+synchronization
+Rendering
+deferred rendering
+shadows
+post-processing
+GPU profiling
+resource barriers
+rendering architecture
+Animation
+skeletons
+skinning
+blend trees
+animation graphs
+Physics
+collision detection
+broad phase
+narrow phase
+rigid body dynamics
+Audio
+mixing
+streaming
+spatialisation
+Networking
+replication
+serialization
+client/server architecture
+Hot reload
+DLLs/modules
+resource replacement
+state preservation
+
+You do not need all of them to prove that you understand engine programming.

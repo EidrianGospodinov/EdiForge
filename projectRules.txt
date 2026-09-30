@@ -1,0 +1,76 @@
+Rule 1 — No copying implementations
+
+You can read.
+
+You can watch.
+
+You can inspect other people's source.
+
+You can read documentation.
+
+You can search Stack Overflow.
+
+You can ask me questions.
+
+But you don't paste an implementation into your project.
+
+Rule 2 — Before researching, formulate the problem
+
+Suppose you reach:
+
+“I need a timer.”
+
+Don't immediately search:
+
+“C++ game engine timer implementation”
+
+Instead write:
+
+“I need to measure elapsed time between frames. It must be accurate enough for a real-time application. What information does the OS provide? What precision do I need? How should I represent it?”
+
+Now your research has a purpose.
+
+Rule 3 — You are allowed to look things up
+
+This is extremely important.
+
+“From scratch” does not mean:
+
+“I must memorise Microsoft's API documentation.”
+
+That's pointless.
+
+You should absolutely look up:
+
+Windows APIs
+Direct3D documentation
+C++ standard library
+compiler behaviour
+CPU instructions
+graphics terminology
+file formats
+algorithms
+
+The learning happens because you understand what you are looking at.
+
+Rule 4 — Don't solve everything yourself
+
+This is another trap.
+
+Your engine should eventually use third-party software.
+
+For example, GLFW exists specifically to provide cross-platform windows, contexts/surfaces, input and event handling. SDL provides similar low-level application functionality.
+
+That's not cheating.
+
+In fact, professional engine architecture is largely about deciding:
+
+“What do we own, what do we wrap, and what do we outsource?”
+
+You might implement your own renderer while using a library for image decoding.
+
+You might implement your own resource manager while using a library for PNG/JPEG.
+
+You might implement a basic collision system for learning, then integrate a physics library.
+
+Reinvent things deliberately, not religiously.
