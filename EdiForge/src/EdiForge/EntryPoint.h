@@ -8,6 +8,8 @@ extern EdiForge::Application* EdiForge::CreateApplication();
 
 int main(int argc, char** argv)
 {
+    printf("EdiForge engine\n");
+        
     auto app = EdiForge::CreateApplication();
     app->Run();
     delete app;
