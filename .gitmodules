@@ -1,0 +1,3 @@
+[submodule "EdiForge/vendor/spdlog"]
+	path = EdiForge/vendor/spdlog
+	url = https://github.com/gabime/spdlog
