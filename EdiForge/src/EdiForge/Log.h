@@ -1,11 +1,12 @@
 #pragma once
 #include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
 #include "Core.h"
 #include <Memory>
 
 namespace EdiForge
 {
-    class Edi_API Log
+    class EdiForge_API Log
     {
         
 
