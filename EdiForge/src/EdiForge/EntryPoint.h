@@ -9,13 +9,14 @@ extern EdiForge::Application* EdiForge::CreateApplication();
 
 int main(int argc, char** argv)
 {
-    printf("EdiForge engine\n");
         
     auto app = EdiForge::CreateApplication();
-    app->Run();
+    printf("EdiForge engine\n");
     EdiForge::Log::Init();
-    EdiForge::Log::GetClientLogger()->warn("Init successfully");
-    EdiForge::Log::GetCoreLogger()->info("Init successfully");
+    EF_CORE_ERROR("Error");
+    int a = 5;
+    EF_WARN("Var={0}",a);
+    app->Run();
     delete app;
 }
 

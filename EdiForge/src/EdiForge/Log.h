@@ -21,3 +21,15 @@ namespace EdiForge
     
     };
 }
+//macros
+//core log
+#define EF_CORE_INFO(...)   ::EdiForge::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define EF_CORE_ERROR(...)  ::EdiForge::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define EF_CORE_WARN(...)   ::EdiForge::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define EF_CORE_TRACE(...)  ::EdiForge::Log::GetCoreLogger()->trace(__VA_ARGS__)
+
+//client log
+#define EF_INFO(...)        ::EdiForge::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define EF_ERROR(...)       ::EdiForge::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define EF_WARN(...)        ::EdiForge::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define EF_TRACE(...)       ::EdiForge::Log::GetCoreLogger()->trace(__VA_ARGS__)
