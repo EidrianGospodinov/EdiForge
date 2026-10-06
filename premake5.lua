@@ -14,6 +14,7 @@ project "EdiForge"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	buildoptions "/utf-8"
 
 	files
 	{
@@ -45,7 +46,7 @@ project "EdiForge"
 	filter "configurations:Debug"
 		defines "EF_DEBUG"
 		symbols "On"
-
+		
 	filter "configurations:Release"
 		defines "EF_RELEASE"
 		optimize "On"
@@ -66,6 +67,7 @@ project "Sandbox"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	buildoptions "/utf-8"
 
 	files
 	{
@@ -94,7 +96,6 @@ project "Sandbox"
 			"EF_Platform_Windows"
 		}
 
-	
 	filter "configurations:Debug"
 		defines "EF_DEBUG"
 		symbols "On"
