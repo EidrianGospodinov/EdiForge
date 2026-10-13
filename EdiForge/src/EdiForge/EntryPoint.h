@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "Core.h"
 #include "Log.h"
+#include "EventSystem/Event.h"
 
 #ifdef EF_Platform_Windows
 
@@ -11,11 +12,8 @@ int main(int argc, char** argv)
 {
         
     auto app = EdiForge::CreateApplication();
-    printf("EdiForge engine\n");
     EdiForge::Log::Init();
-    EF_CORE_ERROR("Error");
-    int a = 5;
-    EF_WARN("Var={0}",a);
+    EF_CORE_ERROR("EdiForge engine\n");
     app->Run();
     delete app;
 }

@@ -1,5 +1,8 @@
 #include "Application.h"
 
+#include "Log.h"
+#include "EventSystem/Event.h"
+
 namespace EdiForge
 {
     Application::Application()
@@ -12,10 +15,10 @@ namespace EdiForge
 
     void Application::Run()
     {
-        while (true)
-        {
-            
-        }
+        KeyEventPressed e(43,4);
+        EF_TRACE(e.GetRepeatCount());
+        
+        while (true);
     }
    
 }

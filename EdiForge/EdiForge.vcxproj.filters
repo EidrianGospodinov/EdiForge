@@ -4,6 +4,9 @@
     <Filter Include="EdiForge">
       <UniqueIdentifier>{0A945035-F660-AB40-1F7A-99E80BA6E0CE}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EdiForge\EventSystem">
+      <UniqueIdentifier>{C0383FA9-ACC7-C872-55E6-DC6D4154D918}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\EdiForge.h" />
@@ -15,6 +18,9 @@
     </ClInclude>
     <ClInclude Include="src\EdiForge\EntryPoint.h">
       <Filter>EdiForge</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EdiForge\EventSystem\Event.h">
+      <Filter>EdiForge\EventSystem</Filter>
     </ClInclude>
     <ClInclude Include="src\EdiForge\Log.h">
       <Filter>EdiForge</Filter>

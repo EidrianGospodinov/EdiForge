@@ -159,6 +159,7 @@
     <ClInclude Include="src\EdiForge\Application.h" />
     <ClInclude Include="src\EdiForge\Core.h" />
     <ClInclude Include="src\EdiForge\EntryPoint.h" />
+    <ClInclude Include="src\EdiForge\EventSystem\Event.h" />
     <ClInclude Include="src\EdiForge\Log.h" />
   </ItemGroup>
   <ItemGroup>
