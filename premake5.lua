@@ -13,7 +13,11 @@ project "EdiForge"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
+	
+	pchheader "efpch.h"
+    pchsource "EdiForge/src/efpch.cpp"
+    
+    
 	buildoptions "/utf-8"
 
 	files
@@ -24,6 +28,7 @@ project "EdiForge"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 

@@ -1,3 +1,4 @@
+#include "efpch.h"
 #include "Log.h"
 
 namespace EdiForge
