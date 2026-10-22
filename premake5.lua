@@ -5,6 +5,14 @@ workspace "EdiForge"
 
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- Include dir relative to root folder
+IncludeDir = {}
+IncludeDir["GLFW"] = "EdiForge/vendor/GLFW/include"
+
+include "EdiForge/vendor/GLFW"
+
+
 project "EdiForge"
 
 	location "EdiForge"
@@ -31,6 +39,11 @@ project "EdiForge"
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
+    links
+    {
+        "GLFW",
+        "opengl32.lib"    
+    }
 
 	filter "system:windows"
 		cppdialect "C++20"
