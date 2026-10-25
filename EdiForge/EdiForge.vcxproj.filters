@@ -25,6 +25,9 @@
     <ClInclude Include="src\EdiForge\Log.h">
       <Filter>EdiForge</Filter>
     </ClInclude>
+    <ClInclude Include="src\EdiForge\Window.h">
+      <Filter>EdiForge</Filter>
+    </ClInclude>
     <ClInclude Include="src\efpch.h" />
   </ItemGroup>
   <ItemGroup>
