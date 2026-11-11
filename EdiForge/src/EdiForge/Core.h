@@ -12,4 +12,9 @@ namespace EdiForge
 #else
     #error Only Windows is surrported
 #endif
+
+//add asserts with when they are enabled, this would need a define in the lua file
+//#ifdef EF_ENABLE_ASSERTS
+    
+    
 }

@@ -37,12 +37,14 @@ project "EdiForge"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}",
 	}
     links
     {
         "GLFW",
-        "opengl32.lib"    
+        "opengl32.lib",    
+		
     }
 
 	filter "system:windows"
@@ -54,7 +56,8 @@ project "EdiForge"
 		defines
 		{
 			"EF_BUILD_DLL",
-			"EF_Platform_Windows"
+			"EF_Platform_Windows",
+			"EF_ENABLE_ASSERTS",
 		}
 
 	postbuildcommands

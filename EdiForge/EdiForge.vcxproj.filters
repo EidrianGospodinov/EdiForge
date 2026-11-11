@@ -7,6 +7,12 @@
     <Filter Include="EdiForge\EventSystem">
       <UniqueIdentifier>{C0383FA9-ACC7-C872-55E6-DC6D4154D918}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Window">
+      <UniqueIdentifier>{D1E05B2F-3D6C-C9F3-467D-4CE8B28725F4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\EdiForge.h" />
@@ -28,6 +34,9 @@
     <ClInclude Include="src\EdiForge\Window.h">
       <Filter>EdiForge</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Window\WindowsWindow.h">
+      <Filter>Platform\Window</Filter>
+    </ClInclude>
     <ClInclude Include="src\efpch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +45,9 @@
     </ClCompile>
     <ClCompile Include="src\EdiForge\Log.cpp">
       <Filter>EdiForge</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Window\WindowsWindow.cpp">
+      <Filter>Platform\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\efpch.cpp" />
   </ItemGroup>

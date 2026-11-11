@@ -3,7 +3,6 @@
 
 #include "efpch.h"
 
-#include <spdlog/fmt/bundled/base.h>
 
 #include "EdiForge/Core.h"
 #include "EdiForge/EventSystem/Event.h"
@@ -28,10 +27,13 @@ namespace EdiForge
     public:
         using EventCallbackFn = std::function<void(Event&)>;
 
-        virtual ~Window() {}
+        virtual ~Window()
+        {
+        }
+
         virtual void OnUpdate() = 0;
-        virtual unsigned int GetCharWidth() const = 0;
-        virtual unsigned int GetCharHeight() const = 0;
+        virtual unsigned int GetWidth() const = 0;
+        virtual unsigned int GetHeight() const = 0;
 
 
         virtual void SetEventCallback(const std::function<void(Event&)>& callback) = 0;
@@ -40,7 +42,5 @@ namespace EdiForge
         virtual bool IsVSync() const = 0;
 
         static Window* Create(const WindowProps& props = WindowProps());
-        
-        
     };
 }
