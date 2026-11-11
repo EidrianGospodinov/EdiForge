@@ -43,8 +43,11 @@ project "EdiForge"
     links
     {
         "GLFW",
-        "opengl32.lib",    
-		
+		"opengl32",
+		"gdi32",
+		"user32",
+		"shell32",
+		--"dwmapi.lib"
     }
 
 	filter "system:windows"

@@ -18,6 +18,8 @@ namespace EdiForge
 
     void Application::Run()
     {
+        EF_TRACE("Hello");
+        
         while (_Running)
         {
             glClearColor(1, 0, 1, 1);
