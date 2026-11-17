@@ -52,8 +52,8 @@ namespace EdiForge
         _Data.Width = props.Width;
         _Data.Height = props.Height;
 
-        EF_CORE_INFO("Creating window {0} ({1}, {2}", props.Title, props.Width, props.Height);
-        if (s_GLFWInitialized)
+        //EF_CORE_INFO("Creating window {0} ({1}, {2}", props.Title, props.Width, props.Height);
+        if (!s_GLFWInitialized)
         {
             int success = glfwInit();
             EF_CORE_INFO("Could not initialize GLFW-{0}",success );

@@ -9,6 +9,7 @@ namespace EdiForge
     public:
         Application();
         virtual ~Application();
+        
         void Run();
     private:
         std::unique_ptr<Window> _Window;

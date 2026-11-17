@@ -10,10 +10,9 @@ extern EdiForge::Application* EdiForge::CreateApplication();
 
 int main(int argc, char** argv)
 {
-        
-    auto app = EdiForge::CreateApplication();
     EdiForge::Log::Init();
     EF_CORE_ERROR("EdiForge engine\n");
+    auto app = EdiForge::CreateApplication();
     app->Run();
     delete app;
 }
